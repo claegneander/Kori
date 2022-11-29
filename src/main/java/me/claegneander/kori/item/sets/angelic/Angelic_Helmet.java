@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 public class Angelic_Helmet extends ItemBase {
 
     public Angelic_Helmet() {
-        super(Component.text("Angelic Helm").color(TextColor.fromHexString(Color.BLUE.getHEX())),
+        super(Component.text("Halo of the Angel").color(TextColor.fromHexString(Color.BLUE.getHEX())),
                 Material.NETHERITE_HELMET, Tier.GODLY, 0, true, true);
     }
     public ItemStack get(){
