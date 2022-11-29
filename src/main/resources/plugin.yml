@@ -1,0 +1,11 @@
+name: Kori
+version: '${version}'
+main: me.claegneander.kori.Main
+api-version: 1.19
+authors: [ claegneander ]
+description: You may think me the maiden; but I am the dragon.
+website: https://github.com/claegneander/Kori
+
+commands:
+  kori:
+    aliases: [k, ko, kor]

@@ -1,0 +1,10 @@
+#Runes
+#How do the levels of the runes affect them?
+#Lightning - increases chance by 1% per level.
+#Vampirism - increases chance by 1% per level.
+#Bulwark - increases chance by 1% per level.
+
+#TODO: Rune for increasing amount of blocks mined per action.
+#TODO: Fix decapitate event.
+#TODO: Get the attribute system written and working properly.
+#TODO: Get SocketExpander and TierUpgrader working properly... again.
