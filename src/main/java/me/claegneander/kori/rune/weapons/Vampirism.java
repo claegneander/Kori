@@ -24,9 +24,7 @@ public class Vampirism extends Rune implements Listener {
     PDCs pdc = new PDCs();
 
     public Vampirism() {
-        super(Component.text("Vampirism")
-                        .color(TextColor.fromHexString(Color.GRAY.getHEX()))
-                        .decoration(TextDecoration.ITALIC, false),
+        super(Component.text("Vampirism"),
                 1, 5, EnchantmentTarget.WEAPON);
     }
     @EventHandler

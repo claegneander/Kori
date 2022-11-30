@@ -22,9 +22,7 @@ public class Lightning extends Rune implements Listener {
     PDCs pdc = new PDCs();
 
     public Lightning() {
-        super(Component.text("Lightning")
-                        .color(TextColor.fromHexString(Color.GRAY.getHEX()))
-                        .decoration(TextDecoration.ITALIC, false),
+        super(Component.text("Lightning"),
                 1, 5, EnchantmentTarget.WEAPON);
     }
     @EventHandler

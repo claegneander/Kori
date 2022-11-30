@@ -2,9 +2,12 @@ package me.claegneander.kori.item;
 
 import me.claegneander.kori.data.PDCs;
 import me.claegneander.kori.misc.Use;
+import me.claegneander.kori.misc.enums.Color;
 import me.claegneander.kori.misc.enums.Tier;
 import me.claegneander.kori.rune.Rune;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -18,6 +21,7 @@ public class ItemBase {
     private final Random random = new Random();
     /* --- */
     private final Component name;
+    private Component tierDisplay;
     private final Material material;
     private final Tier tier;
     private final int dropChance;
@@ -39,6 +43,7 @@ public class ItemBase {
         sockets = new ArrayList<>();
         enchantments = new HashMap<>();
         runes = new HashMap<>();
+        tierDisplay = getTier().getName();
     }
 
     public ItemStack create(){
@@ -61,11 +66,13 @@ public class ItemBase {
                 }
                 itemStack.setItemMeta(itemMeta);
                 itemMeta = pdc.setPDCInteger(itemStack, Use.key(r.getName()), level);
-                temp.add(Component.text(Use.strip(r.getName()) + " " + Use.IntegerToRomanNumerals(level)));
+                temp.add(Component.text(Use.strip(r.getName()) + " " + Use.IntegerToRomanNumerals(level))
+                        .color(TextColor.fromHexString(Color.DEFAULT.getHEX()))
+                        .decoration(TextDecoration.ITALIC, false));
             }
         }
         temp.addAll(getLore());
-        temp.add(getTier().getName());
+        temp.add(tierDisplay);
         /* We add our sockets into the lore here. */
         if(isSocketable()){
             temp.addAll(getSockets());
@@ -129,6 +136,11 @@ public class ItemBase {
         }
         itemStack.setItemMeta(itemMeta);
         return itemStack;
+    }
+    public void setTierColor(String hexCode){
+        Component c = getTier().getName();
+        c = c.color(TextColor.fromHexString(hexCode));
+        tierDisplay = c;
     }
     /* --- */
     public Component getName() {

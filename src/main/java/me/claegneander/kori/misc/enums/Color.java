@@ -57,11 +57,11 @@ public enum Color {
         this.HEX = hex;
     }
     public static String getRandomColor(){
-        Random random = new Random();
         List<String> colors = new ArrayList<>();
         for(Color c : Color.values()){
             colors.add(c.getHEX());
         }
+        Random random = new Random();
         int x = random.nextInt(colors.size());
         return colors.get(x);
     }

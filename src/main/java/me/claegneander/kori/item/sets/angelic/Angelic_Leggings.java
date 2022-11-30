@@ -11,11 +11,11 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
-public class Angelic_Chestplate extends ItemBase {
+public class Angelic_Leggings extends ItemBase {
 
-    public Angelic_Chestplate() {
-        super(Component.text("Robes of the Angel").color(TextColor.fromHexString("#FFDFD3")),
-                Material.NETHERITE_CHESTPLATE, Tier.GODLY, 0, true, true);
+    public Angelic_Leggings() {
+        super(Component.text("Greaves of the Angel").color(TextColor.fromHexString("#FFDFD3")),
+                Material.NETHERITE_LEGGINGS, Tier.GODLY, 0, true, true);
     }
     public ItemStack get(){
         addLore(Component.text("Worn by the most beautiful").color(TextColor.fromHexString("#FEC8D8")));

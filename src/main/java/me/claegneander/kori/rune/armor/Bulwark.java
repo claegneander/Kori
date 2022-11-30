@@ -22,9 +22,7 @@ public class Bulwark extends Rune implements Listener {
     PDCs pdc = new PDCs();
 
     public Bulwark() {
-        super(Component.text("Bulwark")
-                        .color(TextColor.fromHexString(Color.GRAY.getHEX()))
-                        .decoration(TextDecoration.ITALIC, false),
+        super(Component.text("Bulwark"),
                 1, 5, EnchantmentTarget.ARMOR);
     }
     @EventHandler

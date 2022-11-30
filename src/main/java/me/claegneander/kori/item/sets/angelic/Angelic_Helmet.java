@@ -14,15 +14,17 @@ import org.bukkit.inventory.ItemStack;
 public class Angelic_Helmet extends ItemBase {
 
     public Angelic_Helmet() {
-        super(Component.text("Halo of the Angel").color(TextColor.fromHexString(Color.BLUE.getHEX())),
+        super(Component.text("Halo of the Angel").color(TextColor.fromHexString("#FFDFD3")),
                 Material.NETHERITE_HELMET, Tier.GODLY, 0, true, true);
     }
     public ItemStack get(){
-        addLore(Component.text("Worn by the most beautiful princess of the Therans.").color(TextColor.fromHexString(Color.BLUE.getHEX())));
+        addLore(Component.text("Worn by the most beautiful").color(TextColor.fromHexString("#FEC8D8")));
+        addLore(Component.text("princess of the Therans.").color(TextColor.fromHexString("#FEC8D8")));
         addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10);
         addEnchantment(Enchantment.DURABILITY, 10);
-      //addRune(Runes.ANGELIC_GRACE, 1);
+        addRune(Runes.ANGELIC_GRACE, 1);
         setSockets(Socket.get(getTier()));
+        setTierColor("#D291BC");
         return create();
     }
 }

@@ -26,9 +26,7 @@ public class Decapitate extends Rune implements Listener {
     PDCs pdc = new PDCs();
 
     public Decapitate() {
-        super(Component.text("Decapitate")
-                        .color(TextColor.fromHexString(Color.GRAY.getHEX()))
-                        .decoration(TextDecoration.ITALIC, false),
+        super(Component.text("Decapitate"),
                 1, 5, EnchantmentTarget.WEAPON);
     }
     @EventHandler

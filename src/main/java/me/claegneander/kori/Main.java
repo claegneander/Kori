@@ -1,10 +1,8 @@
 package me.claegneander.kori;
 
 import me.claegneander.kori.command.Kori;
-import me.claegneander.kori.item.Stats;
 import me.claegneander.kori.item.consumable.SocketExpander;
 import me.claegneander.kori.item.consumable.TierUpgrader;
-import me.claegneander.kori.item.weapon.LightningBlade;
 import me.claegneander.kori.misc.enums.Color;
 import me.claegneander.kori.rune.Runes;
 import me.claegneander.kori.rune.armor.Bulwark;
