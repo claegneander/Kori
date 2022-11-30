@@ -1,7 +1,7 @@
 package me.claegneander.kori.item;
 
 import me.claegneander.kori.data.PDCs;
-import me.claegneander.kori.item.consumable.SocketExpander;
+import me.claegneander.kori.item.consumable.Socket_Expander;
 import me.claegneander.kori.misc.Use;
 import me.claegneander.kori.misc.enums.Color;
 import me.claegneander.kori.misc.enums.Tier;
@@ -67,7 +67,7 @@ public class Socket {
                         sockets.add(SOCKET);
                         player.sendMessage(Component.text("A socket has been added to your item.")
                                 .color(TextColor.fromHexString(Color.SUCCESS.getHEX())));
-                        SocketExpander socketExpander = new SocketExpander();
+                        Socket_Expander socketExpander = new Socket_Expander();
                         pdc.setPDCString(player, socketExpander.KEY, String.valueOf(false));
                     }else{
                         player.sendMessage(Component.text("That item has the maximum amount of sockets already.")

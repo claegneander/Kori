@@ -2,17 +2,15 @@ package me.claegneander.kori.misc;
 
 import me.claegneander.kori.Main;
 import me.claegneander.kori.data.PDCs;
-import me.claegneander.kori.item.consumable.TierUpgrader;
+import me.claegneander.kori.item.Items;
+import me.claegneander.kori.item.consumable.Tier_Upgrader;
 import me.claegneander.kori.misc.enums.Color;
 import me.claegneander.kori.misc.enums.Tier;
 import me.claegneander.kori.rune.Rune;
 import me.claegneander.kori.rune.Runes;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.TextReplacementConfig;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
-import org.bukkit.ChatColor;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -128,18 +126,35 @@ public class Use {
                     same = true;
                 }
             }
+            boolean validItem = true;
+            for (ItemStack x : Items.getConstants()) {
+                if (itemStack.isSimilar(x)) {
+                    validItem = false;
+                    break;
+                }
+            }
+            if(!validItem){
+                player.sendMessage(Component.text("That item cannot be upgraded.")
+                        .color(TextColor.fromHexString(Color.ERROR.getHEX())));
+                return itemStack;
+            }
             List<Component> lore = itemStack.lore();
             if (lore == null) {
                 return null;
             }
-            for(int i = 0; i < lore.size(); i++){
-                if(lore.get(i).equals(tier.getName())){
-                    lore.set(i, newTier.getName());
-                    player.sendMessage(Component.text("Tier has been upgraded.")
-                            .color(TextColor.fromHexString(Color.SUCCESS.getHEX())));
-                    TierUpgrader tierUpgrader = new TierUpgrader();
-                    pdc.setPDCString(player, tierUpgrader.KEY, String.valueOf(false));
-                    break;
+            for(int i = 0; i < lore.size(); i++) {
+                if (lore.get(i).equals(tier.getName())) {
+                    if (!newTier.equals(tier)) {
+                        lore.set(i, newTier.getName());
+                        player.sendMessage(Component.text("Tier has been upgraded.")
+                                .color(TextColor.fromHexString(Color.SUCCESS.getHEX())));
+                        Tier_Upgrader tierUpgrader = new Tier_Upgrader();
+                        pdc.setPDCString(player, tierUpgrader.KEY, String.valueOf(false));
+                    } else {
+                        player.sendMessage(Component.text("That item is already at the highest tier.")
+                                .color(TextColor.fromHexString(Color.ERROR.getHEX())));
+
+                    }
                 }
             }
             ItemMeta itemMeta = itemStack.getItemMeta();

@@ -6,5 +6,4 @@
 
 #TODO: Rune for increasing amount of blocks mined per action.
 #TODO: Fix decapitate event.
-#TODO: Get the attribute system written and working properly.
-#TODO: Get SocketExpander and TierUpgrader working properly... again.
+#TODO: Get Socket_Expander and Tier_Upgrader working properly... again.

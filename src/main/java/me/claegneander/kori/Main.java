@@ -1,10 +1,12 @@
 package me.claegneander.kori;
 
 import me.claegneander.kori.command.Kori;
-import me.claegneander.kori.item.consumable.SocketExpander;
-import me.claegneander.kori.item.consumable.TierUpgrader;
+import me.claegneander.kori.item.Items;
+import me.claegneander.kori.item.consumable.Socket_Expander;
+import me.claegneander.kori.item.consumable.Tier_Upgrader;
 import me.claegneander.kori.misc.enums.Color;
 import me.claegneander.kori.rune.Runes;
+import me.claegneander.kori.rune.armor.Angelic_Grace;
 import me.claegneander.kori.rune.armor.Bulwark;
 import me.claegneander.kori.rune.weapons.Decapitate;
 import me.claegneander.kori.rune.weapons.Lightning;
@@ -24,11 +26,13 @@ public final class Main extends JavaPlugin {
     private Main instance;
     private ConsoleCommandSender console;
     private Runes runes;
+    private Items items;
     @Override
     public void onEnable() {
         instance = this;
         console = instance.getServer().getConsoleSender();
         runes = new Runes();
+        items = new Items();
 
         saveDefaultConfig();
 
@@ -40,6 +44,7 @@ public final class Main extends JavaPlugin {
     }
     @Override
     public void onDisable() {
+        items = null;
         runes = null;
         console.sendMessage(Component.text("[Kori]: Disabled.")
                 .color(TextColor.fromHexString(Color.ERROR.getHEX())));
@@ -60,8 +65,9 @@ public final class Main extends JavaPlugin {
         PluginManager pm = this.getServer().getPluginManager();
         try{
             List<Listener> listeners = new ArrayList<>();
-            listeners.add(new SocketExpander());
-            listeners.add(new TierUpgrader());
+            listeners.add(new Socket_Expander());
+            listeners.add(new Tier_Upgrader());
+            listeners.add(new Angelic_Grace());
             listeners.add(new Bulwark());
             listeners.add(new Decapitate());
             listeners.add(new Lightning());
@@ -85,5 +91,7 @@ public final class Main extends JavaPlugin {
     public Runes getRunes(){
         return runes;
     }
+
+
 
 }

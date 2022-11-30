@@ -2,6 +2,8 @@ package me.claegneander.kori.command;
 
 import me.claegneander.kori.command.ancillary.Ancillary;
 import me.claegneander.kori.command.ancillary.alpha.Give;
+import me.claegneander.kori.command.ancillary.alpha.NV;
+import me.claegneander.kori.command.ancillary.alpha.Toggle;
 import me.claegneander.kori.misc.enums.Color;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
@@ -33,6 +35,8 @@ public class Kori implements CommandExecutor {
         descriptions = new HashMap<>();
 
         commands.put("give", new Give());
+        commands.put("nv", new NV());
+        commands.put("toggle", new Toggle());
 
         for(String s : commands.keySet()){
             permissions.put(s, commands.get(s).getPermission());

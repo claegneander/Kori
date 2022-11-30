@@ -64,11 +64,13 @@ public class ItemBase {
                 if(level > r.getMaximumLevel()){
                     level = r.getMaximumLevel();
                 }
-                itemStack.setItemMeta(itemMeta);
-                itemMeta = pdc.setPDCInteger(itemStack, Use.key(r.getName()), level);
-                temp.add(Component.text(Use.strip(r.getName()) + " " + Use.IntegerToRomanNumerals(level))
-                        .color(TextColor.fromHexString(Color.DEFAULT.getHEX()))
-                        .decoration(TextDecoration.ITALIC, false));
+                if(r.getTarget().includes(material)) {
+                    itemStack.setItemMeta(itemMeta);
+                    itemMeta = pdc.setPDCInteger(itemStack, Use.key(r.getName()), level);
+                    temp.add(Component.text(Use.strip(r.getName()) + " " + Use.IntegerToRomanNumerals(level))
+                            .color(TextColor.fromHexString(Color.DEFAULT.getHEX()))
+                            .decoration(TextDecoration.ITALIC, false));
+                }
             }
         }
         temp.addAll(getLore());

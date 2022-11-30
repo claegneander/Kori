@@ -7,11 +7,13 @@ public class Rune {
 
     private final Component name;
     private final int minimumLevel, maximumLevel;
+    EnchantmentTarget target;
 
     public Rune(Component name, int minimumLevel, int maximumLevel, EnchantmentTarget target) {
         this.name = name;
         this.minimumLevel = minimumLevel;
         this.maximumLevel = maximumLevel;
+        this.target = target;
     }
 
     public Component getName() {
@@ -24,5 +26,9 @@ public class Rune {
 
     public int getMaximumLevel() {
         return maximumLevel;
+    }
+
+    public EnchantmentTarget getTarget() {
+        return target;
     }
 }

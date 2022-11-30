@@ -28,14 +28,17 @@ public class Bulwark extends Rune implements Listener {
     @EventHandler
     public void onEvent(EntityDamageByEntityEvent event){
         if(event.getDamager() instanceof  Player player) {
-            ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-            if (pdc.hasPDCInteger(itemInMainHand, Use.key(getName()))) {
-                Random random = new Random();
-                int chance = random.nextInt(10001);
-                int level = pdc.getPDCInteger(itemInMainHand, Use.key(getName()));
-                chance = chance + (level * 100);
-                if (chance < 1001) {
-                    //DO BULWARK!
+            for(ItemStack i : player.getInventory().getArmorContents()) {
+                if (i != null) {
+                    if (pdc.hasPDCInteger(i, Use.key(getName()))) {
+                        Random random = new Random();
+                        int chance = random.nextInt(10001);
+                        int level = pdc.getPDCInteger(i, Use.key(getName()));
+                        chance = chance + (level * 100);
+                        if (chance < 1001) {
+                            //DO BULWARK!
+                        }
+                    }
                 }
             }
         }
